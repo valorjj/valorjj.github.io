@@ -153,4 +153,4 @@ public CorsConfigurationSource customCorsConfigurationSource() {
   return source;
 }
 ```
-이후 내용은 [여기]({% link docker/index.html %})서 이어진다.
+{{ page.path }}
