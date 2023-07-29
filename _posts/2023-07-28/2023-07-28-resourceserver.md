@@ -153,13 +153,3 @@ public CorsConfigurationSource customCorsConfigurationSource() {
   return source;
 }
 ```
-
-
-> `jwt` 에 대해서는 [여기](../2023-07-30/2023-07-30-jwk.md) 를 참고한다.
-{: .prompt-info }
-
-
-이후 테스트는 [여기](../2023-07-29/2023-07-29-OAuth2.0_ResourceServer.md) 에서 확인할 수 있다.
-
-
-
