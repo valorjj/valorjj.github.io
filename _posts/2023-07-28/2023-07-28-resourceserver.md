@@ -14,6 +14,9 @@ image:
 > OAuth 2.0 Client + OAuth 2.0 Resource Server + Keycloak
 {: .prompt-warning }
 
+
+
+
 ## 필요지식
 
 - OAuth 2.0
