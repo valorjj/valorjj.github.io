@@ -153,4 +153,4 @@ public CorsConfigurationSource customCorsConfigurationSource() {
   return source;
 }
 ```
-이후 내용은 [여기]({% post_url OAuth2.0_ResourceServer/2023-07-29-OAuth2.0_ResourceServer %})서 이어진다.
+이후 내용은 [여기]({% post_url /2023-07-28/2023-07-28-petclinic %})서 이어진다.
