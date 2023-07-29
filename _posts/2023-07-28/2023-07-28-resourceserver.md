@@ -153,4 +153,3 @@ public CorsConfigurationSource customCorsConfigurationSource() {
   return source;
 }
 ```
-{{ page.path }}
