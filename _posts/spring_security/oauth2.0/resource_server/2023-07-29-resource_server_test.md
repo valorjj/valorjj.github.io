@@ -16,20 +16,48 @@ image:
 
 ![oidc explain](../../assets/img/oidc/openid-connect-oidcexplained-ss2-22.png)
 
-설정은 [여기]({% post_url 2023-07-28-resourceserver %}) 를 참고한다.
+설정은 [여기]({% post_url spring_security/oauth2.0/resource_server/2023-07-28-resource_server_config %}) 를 참고한다.
+또한 JWT 관한 내용은 [여기]({% post_url spring_security/jwt/2023-07-30-jwt %}) 를 참고한다.
 
-## 테스트
 
-> Keycloak 로그인 -> 토큰 발급 -> 서버에 자원 요청
+> Keycloak 처럼 인가 서버를 따로 둔 경우, 인가 서버에 로그인이 되었을 때 어노테이션을 사용해서 access token 을 쉽게 가져올 수 있다. 
+{: .prompt-warning }
+
+```java
+@GetMapping("/token")
+public OAuth2AccessToken token(@RegisteredOAuth2AuthorizedClient("keycloak") OAuth2AuthorizedClient oAuth2AuthorizedClient) {
+    // OAuth2AuthorizedClient 는 Authorization 에 관한 정보가 들어있다.
+    // @RegisteredOAuth2AuthorizedClient 을 통해서
+    // 인가된 객체인 OAuth2AuthorizedClient 에 포함된 파라미터에 대한
+    // 접근 권한을 획득한다.
+    return oAuth2AuthorizedClient.getAccessToken();
+}
+```
+
+> Keycloak 서버에 로그인을 마친 후, localStorage 에 access token 을 저장한다. <br/>
+> access token 을 저장하고 /home 경로로 이동한다. /home 에서는 서버에 요청을 보낸다.
 {: .prompt-info }
 
-`Postman` 을 사용해서 로그인 후, 헤더에 access token 값을 넣어서 보내면 된다. 어떤 방식을 사용해도 상관없다. 
 
-현재 OAuth 2.0 강좌를 수강하는 입장에서 배움의 자세로 `RestTemplate` 을 사용해서 HTTP 요청을 보내는 걸 따라해본다.
+```javascript
+function token(){
+    fetch("/token")
+        .then(response => {
+            response.json().then(function(data){
+                window.localStorage.setItem("access_token", data.tokenValue);
+                location.href = "/home";
+            })
+        });
+}
+```
+
+> ResourceServer 에 자원을 요청한다. 
+{: .prompt-info }
+
 
 ```java
 /**
- * AccessToken 은 Keycloak 로그인 후, Local Storage 에 저장되는 상황이다.
+ * AccessToken 은 Keycloak 로그인 후, localStorage 에 저장되는 상황이다.
  * 해당 토큰을 사용해서 서버에 요청을 보낸다.
  * /
 @GetMapping("/photos")
@@ -51,17 +79,7 @@ public List<Photo> photos(AccessToken accessToken) {
 }
 ```
 
-> 인가 서버를 따로 둔 경우, 인가 서버에 로그인이 되었을 때 어노테이션을 사용해서 access token 을 쉽게 가져올 수 있다. 
-{: .prompt-warning }
-
-```java
-@GetMapping("/token")
-public OAuth2AccessToken token(@RegisteredOAuth2AuthorizedClient("keycloak") OAuth2AuthorizedClient oAuth2AuthorizedClient) {
-    return oAuth2AuthorizedClient.getAccessToken();
-}
-```
-
-GET 요청을 보내는 간단한 스크립트이다. 
+***GET 요청*** 을 보내는 간단한 스크립트이다. 
 
 ```javascript
 function photos() {
@@ -75,13 +93,18 @@ function photos() {
         .then(response => {
             response.json().then(function (data) {
                 for (const prop in data) {
-                    // 화면에 정보를 뿌려준다.
+                    // 확인을 위해서 화면에 정보를 뿌려준다.
                 }
             })
         })
         .catch((error) => console.log("error:", error));
 }
 ```
+
+> [인프런 강의](https://inf.run/6BU4) 에서는 기능별로 나누어서 실습한다. <br/>
+> 통합해서 적용하는 과정은 이후 강의에서 이어진다.
+{: .prompt-danger }
+
 
 
 ## 출처

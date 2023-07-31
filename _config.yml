@@ -20,12 +20,12 @@ timezone: Asia/Seoul
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: One Thing # the main title
+title: make it simple # the main title
 
-tagline: small study note # it will display as the sub-title
+tagline: stay simple # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
-  springboot, jpa, docker, aws, react, algorithm
+  springboot, jpa, docker, aws, react, algorithm, more coming
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: "https://valorjj.github.io"
@@ -78,7 +78,7 @@ theme_mode: light # [light|dark]
 img_cdn:
 
 # the avatar on sidebar, support local or CORS resources
-avatar:
+avatar: /assets/img/avatar_01.png
 
 # boolean type, the global switch for TOC in posts.
 toc: true

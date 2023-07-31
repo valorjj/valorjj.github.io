@@ -15,16 +15,6 @@ image:
 {: .prompt-warning }
 
 
-
-
-## 필요지식
-
-- OAuth 2.0
-- Client - Authorization Server - Authentication Server - DB 의 관계
-- JWT 의 작동방식
-- Keycloak 설정
-
-
 ## Client - application.yml
 
 > OAuth 2.0 Client 설정
@@ -32,7 +22,7 @@ image:
 
 ```yaml
 server:
-  port: 8081
+  port: ${클라이언트의 포트 번호}
 
 spring:
   security:
@@ -109,7 +99,7 @@ public RestTemplate restTemplate() {
 
 ```java
 server:
-  port: 8088
+  port: ${리소스 서버의 포트 번호}
 
 spring:
   security:
@@ -140,7 +130,7 @@ public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Excepti
 
 
 /**
-* 8081 <-> 8088
+* 클라이언트 -> 서버 간 CORS 을 허용하는 설정이 필요하다.
 * */
 @Bean
 public CorsConfigurationSource customCorsConfigurationSource() {

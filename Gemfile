@@ -30,4 +30,3 @@ end
 
 
 gem 'jekyll-compose', group: [:jekyll_plugins]
-# gem 'jekyll-relative-links', '~> 0.7.0'
