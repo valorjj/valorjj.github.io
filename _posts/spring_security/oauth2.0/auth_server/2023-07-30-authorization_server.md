@@ -13,7 +13,6 @@ image:
     <summary>관련 포스팅</summary>
     <ul>
     {% assign posts = site.posts | sort: 'date' | reverse %}
-    <!-- {% assign posts = site.posts | sort: 'last_updated' | reverse %} -->
     {% for post in posts %}
         {% for category in post.categories %}
             {% if category == "Spring Security" %}
