@@ -21,13 +21,11 @@ image:
 
 ![architecture](oauth2/OAuth2AuthorizationResourceServerConfiguration.png)
 
-
 ## 의존성 추가
 
 ```groovy
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-authorization-server'
 ```
-
 
 ## OAuth2AuthorizationServerConfigurer
 
@@ -90,8 +88,7 @@ image:
 > OAuth 2.0 Authorization Server + RegisteredClient + RegisteredClientRepository 로 토큰을 요청받는 barebone 코드를 작성한다.
 {: .prompt-info }
 
-인가 서버 설정은 [여기]({% post_url spring_security/oauth2.0/auth_server/2023-07-30-authorization_server_config %}) 를 참고하면 된다.
-
+인가 서버 설정은 [여기]({% post_url spring_security/oauth2.0/authorization_server/2023-07-30-authorization_server_config %}) 를 참고하면 된다.
 
 ### postman 으로 요청 보내기
 
@@ -140,4 +137,9 @@ public OAuth2Authorization oAuth2Authorization(String token){
 
 
 ## Conclude
+
+어떠한 방식으로 구현하던지 JWT 를 암호화해서 생성, 전송, 검증하는 방식 자체는 유사하다. 외부 인가 서버를 도입할 수 없는 상황이라면, 스프링부트 서버에 OAuth2.0 Resource Server, OAuth2.0 Client 를 설치해서 연동하는 방법을 익혀야하고 그때를 위한 기록이다.
+
+이 때, 토큰을 중간에 캐싱해서 인증에 재사용하는 등의 구체적인 내부 로직 사항은 몰라도 상관없다. 기본 설정 방법, 전반적인 작동 원리를 아는 것이 더 중요하다. 
+
 

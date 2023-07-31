@@ -3,7 +3,6 @@ title: Opaque 토큰 이해
 date: 2023-07-28 18:42 +09:00
 categories: ["Spring Security","OAuth2.0"]
 tags: ["jwt", "opaque"]
-img_path: /assets/img/
 image:
     path: jwt_logo.png
     alt: ""

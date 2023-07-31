@@ -1,7 +1,7 @@
 ---
 title: github.io 개설
 date: 2023-07-31 06:29 +09:00
-categories: ["Github"]
+categories: ["Github", "Jekyll"]
 tags: ["blog"]
 image:
     path: github_text_logo.png

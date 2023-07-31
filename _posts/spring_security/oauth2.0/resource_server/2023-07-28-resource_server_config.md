@@ -3,7 +3,6 @@ title: OAuth 2.0 Client/Resource Server 연동 - 설정
 date: 2023-07-28 22:45 +09:00
 categories: ["Spring Security","OAuth2.0"]
 tags: ["Resource Server"]
-img_path: /assets/img/
 image:
     path: spring_security_logo.png
     alt: ""

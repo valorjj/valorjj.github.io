@@ -3,7 +3,6 @@ title: OpenID Connect(OIDC) 에 관해서
 date: 2023-07-29 18:10 +09:00
 categories: ["Spring Security","OAuth2.0"]
 tags: ["OIDC"]
-img_path: /assets/img/
 image:
     path: spring_security_logo.png
     alt: ""
