@@ -70,9 +70,9 @@ public class AuthorizationServerConfig {
 
 `http://localhost:9000/.well-known/openid-configuration` 으로 접속해보면 다음과 같은 정보를 알 수 있다.
 
-![openid-configuration](../../../../../assets/img/oidc/openid-connect-oidcexplained-ss2-22.png)
+![openid-configuration](../../../../../assets/img/oidc/openid-connect-oidcexplained.png)
 
-```javscript
+<!-- ```javscript
 {
     "issuer": "http://localhost:9000",
     "authorization_endpoint": "http://localhost:9000/oauth2/authorize",
@@ -117,5 +117,5 @@ public class AuthorizationServerConfig {
         "openid"
     ]
 }
-```
+``` -->
 
