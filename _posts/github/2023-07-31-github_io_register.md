@@ -3,7 +3,6 @@ title: github.io 개설
 date: 2023-07-31 06:29 +09:00
 categories: ["Github"]
 tags: ["blog"]
-img_path: /assets/img/
 image:
     path: github_text_logo.png
     alt: ""
@@ -367,6 +366,70 @@ chirpy 테마의 git repo 는 [여기](https://github.com/cotes2020/jekyll-theme
 ```
 {% endraw %}
 
+
+### 내부 링크 
+
+> post_url 이거 하나면 쓰면 된다.
+{: .prompt-danger }
+
+내가 작성한 A, B, C 라는 글을 서로서로 링크 시키려면 어떻게 해야할까? Jekyll 공식 문서를 꼼꼼하게 안 읽고 몇 시간 삽질한 결과 `post_url` 태그를 사용하는게 가장 쉽고 오류가 없다.
+
+배포 시, `site/posts` 경로에 파일이 생성되니까 상대 경로로.. 또 `link` 라는 태그가 있네? 근데 왜 안되는거야.. 
+
+{% raw %}`{% post_url YYYY-MM-DD-포스트이름 %}`{% endraw %} 이렇게 작성하면 해당 게시글로 이동된다. 쉽게 쓰라고 만들었으니 사양말고 쓰면된다. 왜 그런지 알고싶지 않았다.
+
+![삽질](sapzil.png)
+
+### 이미지 첨부
+
+> 루트 경로에 있는 assets 폴더 안에 이미지 파일 집어넣으면 된다. <br/>
+> 이미지를 복사, 붙여넣기 하면 작성하는 글과 동일한 위치에 들어간다. 하지만 엑박뜬다.. <br/>
+{: .prompt-warning }
+
+이미지 경로와 관련해서, front matter 에 고정된 주소를 미리 작성해두면 편하다. 나는 `assets/img` 안에 이미지 파일을 넣었다. 그리고 front matter 에 다음과 같이 작성한다.
+
+jekyll 문서를 읽어보면, 서버 배포 후 site/posts 내에서는 프로젝트 루트를 기준으로 상대경로로 작성하라고 되어있다. `img_path` 에 작성해두면, 포스트 내에서 이미지를 링크할 때 `/assets/img/` 에서 이어지는 부분만 넣으면 된다. 
+
+`image/path` 는 글의 제일 앞부분에 이미지를 1장 넣어주는 역할을 한다. `assets/img` 위치에 이미지를 넣어두었다면, _이미지 이름.확장자만 적으면 된다._
+
+{% raw %}
+```liquid
+---
+title: github.io 개설
+date: 2023-07-31 06:29 +09:00
+categories: ["Github"]
+tags: ["blog"]
+img_path: /assets/img/
+image:
+    path: github_text_logo.png
+    alt: ""
+layout: post
+---
+
+![이미지를 첨부합니다.](spring.png)
+
+```
+{% endraw %}
+
+img_path 적는것도 귀찮다! 싶어서 `_config.yml` 에 넣었다. 이로서 매번 반복해서 적어야 하는 값 1줄 줄였다.
+
+```yaml
+defaults:
+  - scope:
+      path: "" # An empty string here means all files in the project
+      type: posts
+    values:
+      layout: post
+      comments: true # Enable comments in posts.
+      toc: true # Display TOC column in posts.
+      # DO NOT modify the following parameter unless you are confident enough
+      # to update the code of all other post links in this project.
+      permalink: /posts/:title/
+
+      ### 이 부분을 추가하면 된다. assets/img/ 로 앞에 슬래시 빼고 적으면 경로오류!
+      img_path: /assets/img/
+```
+## Conclude
 
 깊게 파면 끝도 없을 것 같아서 여기까지 줄인다. Ruby, Jekyll, Liquid 등 다소 생소했지만 이틀간 정리하면서 재밌는 경험이었다.
 
