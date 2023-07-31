@@ -9,23 +9,6 @@ image:
     alt: ""
 ---
 
-<details> 
-    <summary>관련 포스팅</summary>
-    <ul>
-    {% assign posts = site.posts | sort: 'date' | reverse %}
-    {% for post in posts %}
-        {% for category in post.categories %}
-            {% if category == "Spring Security" %}
-                <li>
-                    <a href="{{ post.url }}">{{ post.title }}</a>
-                </li>
-            {% endif %}
-        {% endfor %}
-    {% endfor %}
-    </ul>
-</details>
-
-
 # Introduction
 
 `Keycloak` 등 외부 인가 서버가 아닌 스프링 시큐리티에서 지원하는 `Spring Authorization  Server` 를 구성한다.
@@ -99,4 +82,6 @@ image:
 - [ ] `OidcClientRegistrationEndpointConfigurer`
     - [ ] `OidcClientRegistrationEndpointFilter`
     - [ ] `OidcClientRegistrationAuthenticationProvider`
+
+
 
