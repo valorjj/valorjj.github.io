@@ -3,11 +3,27 @@
     <ul>
     {% assign posts = site.posts | sort: 'date' | reverse %}
     {% for post in posts %}
-        {% assign categories = post.categories %}
-        {% if category == post.categories[0] or category == post.categories[1] %}
-            <li>
-                <a href="{{ post.url }}">{{ post.title }}</a>
-            </li>
+        {% assign this_category = page.categories[0] %}
+        {% assign this_sub_category = page.categories[1] %}
+        {% assign remote_category = post.categories[0] %}
+        {% assign remote_sub_category = post.categories[1] %}
+        
+        <!-- 메인, 서브 카테고리가 모두 일치하는 경우 -->
+        {% 
+            if this_category == remote_category 
+                and 
+            this_sub_category == remote_sub_category 
+        %}
+        <!-- 메인 카테고리만 일치하는 경우 -->
+        {%
+            elsif this_category == remote_category
+        %}
+            <!-- 해당 게시글은 제외 -->
+            {% unless post.title == page.title %}
+                <li>
+                    <a href="{{ post.url }}">{{ post.title }}</a>
+                </li>
+            {% endunless %}
         {% endif %}
     {% endfor %}
     </ul>

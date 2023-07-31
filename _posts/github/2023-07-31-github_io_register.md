@@ -315,7 +315,7 @@ chirpy 테마의 git repo 는 [여기](https://github.com/cotes2020/jekyll-theme
 
 나는 카테고리를 공유하는 글 목록을 보여주고 싶다. `_includes` 에 생성한 코드는 다음과 같다. 전역적으로 사용할 것이기 때문에, 하드코딩 된 값을 다 제거해야 한다. 
 
-그리고 글이 점점 길어지면서 목록도 늘어날 것이기 때문에, `<detail>` 를 사용해서 접는 코드에 집어넣었다. 
+그리고 글이 점점 길어지면서 목록도 늘어날 것이기 때문에, `<detail>` 를 사용해서 접는 코드에 집어넣었다.
 
 > _includes/category.html
 {: .prompt-warning }
@@ -323,18 +323,34 @@ chirpy 테마의 git repo 는 [여기](https://github.com/cotes2020/jekyll-theme
 {% raw %}
 ```liquid
 <details>
-    <summary>관련 포스트</summary>
-    <ul>
+  <summary>관련 포스트</summary>
+  <ul>
     {% assign posts = site.posts | sort: 'date' | reverse %}
     {% for post in posts %}
-        {% assign categories = post.categories %}
-        {% if category == post.categories[0] or category == post.categories[1] %}
-            <li>
-                <a href="{{ post.url }}">{{ post.title }}</a>
-            </li>
+        {% assign this_category = page.categories[0] %}
+        {% assign this_sub_category = page.categories[1] %}
+        {% assign remote_category = post.categories[0] %}
+        {% assign remote_sub_category = post.categories[1] %}
+        
+        <!-- 메인, 서브 카테고리가 모두 일치하는 경우 -->
+        {% 
+            if this_category == remote_category 
+                and 
+            this_sub_category == remote_sub_category 
+        %}
+        <!-- 메인 카테고리만 일치하는 경우 -->
+        {%
+            elsif this_category == remote_category
+        %}
+            <!-- 해당 게시글은 제외 -->
+            {% unless post.title == page.title %}
+                <li>
+                    <a href="{{ post.url }}">{{ post.title }}</a>
+                </li>
+            {% endunless %}
         {% endif %}
     {% endfor %}
-    </ul>
+  </ul>
 </details>
 ```
 {% endraw %}
@@ -429,6 +445,34 @@ defaults:
       ### 이 부분을 추가하면 된다. assets/img/ 로 앞에 슬래시 빼고 적으면 경로오류!
       img_path: /assets/img/
 ```
+
+### last_modified_at
+
+스택오버플로우를 뒤적이다 보니,`last_modified_at` 라는 front matter 를 나는 작성한 적이 없는데 git push 이후에 꺼내서 사용할 수 있다는 것을 알았다. 
+
+`_plugins/posts-lastmod-hook.rb` 에 그 비밀이 숨겨져 있었다.
+git log 에 자동으로 생성되는 날짜를 가져와서 `last_modified_at` 이라는 특성을 추가한다. 
+
+
+```shell
+#!/usr/bin/env ruby
+#
+# Check for changed posts
+
+Jekyll::Hooks.register :posts, :post_init do |post|
+
+  commit_num = `git rev-list --count HEAD "#{ post.path }"`
+
+  if commit_num.to_i > 1
+    lastmod_date = `git log -1 --pretty="%ad" --date=iso "#{ post.path }"`
+    post.data['last_modified_at'] = lastmod_date
+  end
+
+end
+
+```
+
+
 ## Conclude
 
 깊게 파면 끝도 없을 것 같아서 여기까지 줄인다. Ruby, Jekyll, Liquid 등 다소 생소했지만 이틀간 정리하면서 재밌는 경험이었다.
