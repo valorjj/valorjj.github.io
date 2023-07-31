@@ -17,7 +17,7 @@ image:
 
 `AuthorizationServerContextHolder`, `AuthorizationServerContextFilter` 를 사용한다. 
 
-![authorization server context](../../../../../assets/img/oauth2/oauth2_authorization_server/context.png)
+![authorization server context](/oauth2/oauth2_authorization_server/context.png)
 
 
 ## 설정
@@ -70,7 +70,7 @@ public class AuthorizationServerConfig {
 
 `http://localhost:9000/.well-known/openid-configuration` 으로 접속해보면 다음과 같은 정보를 알 수 있다.
 
-![openid-configuration](../../../../../assets/img/oidc/openid-connect-oidcexplained.png)
+![openid-configuration](/oidc/openid-connect-oidcexplained.png)
 
 <!-- ```javscript
 {
