@@ -3,7 +3,6 @@ title: OAuth2.0 인가 서버 설정
 date: 2023-07-29 18:10 +09:00
 categories: ["Spring Security","OAuth2.0"]
 tags: ["Resource Server"]
-img_path: /assets/img/
 image:
     path: spring_security_logo.png
     alt: ""
@@ -28,7 +27,7 @@ image:
 
 > 간단한 설정으로 인가서버를 구성하는 것이 포인트
 
-`AuthorizationServerConfig` 에 설정을 등록한다.
+`AuthorizationServerConfig` 에 설정을 등록한다. proxyBeanMethods 에 관해서는 [잘 정리된 블로그](https://mangkyu.tistory.com/234) 를 참고한다.
 
 ```java
 @Configuration(proxyBeanMethods = false)
@@ -36,7 +35,7 @@ public class AuthorizationServerConfig {
 
 }
 ```
-ㄹ 
+
 
 ```java
 @Bean
@@ -92,3 +91,34 @@ RegisteredClient.withId(UUID.randomUUID().toString())
 
 클라이언트를 등록하고, 기존 클라이언트를 조회할 수 있는 저장소이다. 권한 부여 처리, 토큰 검사, 동적 클라이언트 등록 등의 상황에서 다른 곳에서 호출해서 사용한다.
 
+
+## Default Security 설정
+
+테스트 진행을 위한 최소한의 설정을 한다. `OAuth2AuthorizationService` 을 Bean 으로 등록한다.
+
+```java
+@EnableWebSecurity
+public class DefaultSecurityConfig {
+
+	@Bean
+	SecurityFilterChain defaultSecurityFilterChain(HttpSecurity http) throws Exception {
+		http
+			.authorizeRequests(authorizeRequests ->
+				authorizeRequests.anyRequest().authenticated()
+			)
+			.formLogin(withDefaults());
+		return http.build();
+	}
+
+	@Bean
+	public UserDetailsService userDetailsService(){
+		UserDetails user = User.withUsername("user").password("{noop}1234").authorities("ROLE_USER").build();
+		return new InMemoryUserDetailsManager(user);
+	}
+
+	@Bean
+	public OAuth2AuthorizationService oAuth2AuthorizationService(){
+		return new InMemoryOAuth2AuthorizationService();
+	}
+}
+```

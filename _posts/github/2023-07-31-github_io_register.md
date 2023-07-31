@@ -118,7 +118,7 @@ comments:
 
 ### front matter
 
-`.yml` 형식으로 몇 가지 값을 설정해주어야 한다. 해당 값은 liquid 문법으로 본문 안에서 꺼내 쓸 수 있다. 
+`.yml` 형식으로 몇 가지 값을 설정해주어야 한다. (해당 값은 liquid 문법으로 본문 안에서 꺼내 쓸 수 있다.)
 
 간단하게 아래와 같은 형식이다. `.md` -> `.html` 변환을 위해서 title 이 필수값이고 나머지는 옵션이다.
 
@@ -394,6 +394,16 @@ chirpy 테마의 git repo 는 [여기](https://github.com/cotes2020/jekyll-theme
 {% raw %}`{% post_url YYYY-MM-DD-포스트이름 %}`{% endraw %} 이렇게 작성하면 해당 게시글로 이동된다. 쉽게 쓰라고 만들었으니 사양말고 쓰면된다. 왜 그런지 알고싶지 않았다.
 
 ![삽질](sapzil.png)
+
+
+다만, 주의사항은 `_post/folder1/folder2/2023-01-01-test.md` 파일이 있다면 아래와 같이 입력해야 한다. 파일 확장자는 생략한다.
+
+{% raw %}
+```liquid
+[링크이름]({% post_url folder/folder2/2023-01-01.test %}) 
+```
+{% endraw %}
+
 
 ### 이미지 첨부
 

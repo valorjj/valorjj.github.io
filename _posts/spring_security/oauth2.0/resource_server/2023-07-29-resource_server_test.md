@@ -3,7 +3,6 @@ title: OAuth 2.0 Resource Server 개념
 date: 2023-07-29 18:10 +09:00
 categories: ["Spring Security","OAuth2.0"]
 tags: ["Resource Server"]
-img_path: /assets/img/
 image:
     path: spring_security_logo.png
     alt: ""
@@ -14,7 +13,7 @@ image:
 > Keycloak 을 활용한 Client, Resource Server 의 전반적인 작동 원리를 알아본다.
 {: .prompt-info }
 
-![oidc explain](../../assets/img/oidc/openid-connect-oidcexplained.png)
+![oidc explain](openid-connect-oidcexplained.png)
 
 설정은 [여기]({% post_url spring_security/oauth2.0/resource_server/2023-07-28-resource_server_config %}) 를 참고한다.
 또한 JWT 관한 내용은 [여기]({% post_url spring_security/jwt/2023-07-30-jwt %}) 를 참고한다.
