@@ -14,7 +14,7 @@ image:
 > Keycloak 을 활용한 Client, Resource Server 의 전반적인 작동 원리를 알아본다.
 {: .prompt-info }
 
-![oidc explain](../../assets/img/oidc/openid-connect-oidcexplained-ss2-22.png)
+![oidc explain](../../assets/img/oidc/openid-connect-oidcexplained.png)
 
 설정은 [여기]({% post_url spring_security/oauth2.0/resource_server/2023-07-28-resource_server_config %}) 를 참고한다.
 또한 JWT 관한 내용은 [여기]({% post_url spring_security/jwt/2023-07-30-jwt %}) 를 참고한다.
