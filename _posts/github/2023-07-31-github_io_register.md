@@ -1,5 +1,5 @@
 ---
-title: github.io 블로그 만들기
+title: github 블로그 만들기
 date: 2023-07-31 06:29 +09:00
 categories: ["Github", "Jekyll"]
 tags: 

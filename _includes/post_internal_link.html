@@ -1,0 +1,6 @@
+<!-- 해당 게시글은 제외 -->
+{% unless post.title == page.title %}
+    <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+    </li>
+{% endunless %}
