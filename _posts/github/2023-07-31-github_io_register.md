@@ -1,12 +1,11 @@
 ---
-title: github.io 개설
+title: github.io 블로그 만들기
 date: 2023-07-31 06:29 +09:00
 categories: ["Github", "Jekyll"]
-tags: ["blog"]
+tags: 
 image:
     path: github_text_logo.png
     alt: ""
-layout: post
 ---
 
 # Introduction
@@ -102,19 +101,11 @@ comments:
 
 ```
 
-100% 파악한 것은 아니다. 하지만 시행착오 겪으며 알게된 사실은 다음과 같다.
-
-1. _config.yml 에 설정한 값으로 build 한다.
-2. _site/posts 폴더 아래, .md 파일의 YYYY-MM-DD-${문서이름} 에서 ${문서이름} 의 폴더가 생기고, 그 안애 index.html 파일이 생긴다. 그러니 내가 만든 .md : 생성된 index.html = 1 : 1 이다. 
-3. 생성된 index.html 파일을 열어보면, .md 파일이 .html 파일로 변환되었고 css 와 js 파일들이 들어가 있다. (정적인 사이트를 jekyll 이 만들어주는 것이다.)
-4. 오류가 발생하면, 경로 문제일 확률이 높다. _posts 는 로컬, _site 는 서버 를 알고 있어야 하고 다행이 jekyll 은 link, include, collection, post_url 등 편리한 기능을 제공한다.
-
-
-
-
-## post 작성
+## post 작성 규칙
 
 `YYYY-MM-dd-${파일이름}.md` 형식을 지켜야 한다. ex) `2023-07-31-TEST.md`
+
+
 
 ### front matter
 
