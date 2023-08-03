@@ -6,5 +6,7 @@
 {% if hasAnyPost == 1 %}
     {% include display_posts.html %}
 {% elsif hasAnyPost == 0 %}
-    {% include no_post.html %}
+    {% unless page.title == "Todo List" %}
+        {% include no_post.html %}
+    {% endunless %}
 {% endif %}
