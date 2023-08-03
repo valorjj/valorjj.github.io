@@ -4,7 +4,7 @@ date: 2023-08-01 07:00 +09:00
 categories: ["Spring Boot", "JPA"]
 tags: ["transaction"]
 image:
-    path: spring.png
+    path: jpa_logo.png
     alt: ""
 ---
 

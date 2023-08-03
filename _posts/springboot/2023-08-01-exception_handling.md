@@ -142,6 +142,10 @@ public class CustomValidationException extends RuntimeException {
 > AOP 를 적용할 클래스 <br/>
 {: .prompt-warning }
 
+모든 `POST`, `PUT` 요청에 대해서 유효성 검사를 수행한다. `@Pointcut` 은 일종의 필터 역할을 하는데 쉽게 말해서 어떤 조건을 걸어서 해당 조건에 부합하는 것들에게만 필요한 로직을 적용시킨다.
+
+
+
 
 ```java
 @Component
@@ -194,7 +198,7 @@ public ResponseEntity<?> validationApiException(CustomValidationException e) {
 > @Valid 를 사용한 인자 다음에 반드시 BindingResult 를 인자로 넣어야 유효성 검사가 작동한다. <br/>
 {: .prompt-danger }
 
-에러 객체에 대해서 다양한 메서드를 제공한다.
+`BindingResult` 는 에러 객체에 대해서 다양한 메서드를 제공한다.
 ![binding_result](binding_result.png) 
 
 
@@ -208,6 +212,5 @@ public ResponseEntity<?> apiController(@RequestBody @Valid CustomDTO dto, Bindin
 
 
 ## 참고자료
-
 1. https://sup2is.github.io/2021/03/04/java-exceptions-and-spring-transactional.html
 2. https://techblog.woowahan.com/2606/

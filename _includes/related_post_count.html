@@ -1,5 +1,6 @@
 {% assign hasAnyPost = 0 %}
-{% for post in site.posts %}
+{% assign posts = site.posts | sort: 'last_updated_at' | reverse %}
+{% for post in posts %}
     {% assign post_category = post.categories[0] %}
     {% assign post_sub_category = post.categories[1] %}
     <!-- 메인, 서브 카테고리가 모두 일치하는 경우 -->
