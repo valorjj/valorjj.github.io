@@ -20,9 +20,9 @@ timezone: Asia/Seoul
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: find a way # the main title
+title: code # the main title
 
-tagline: just do it # it will display as the sub-title
+tagline: struggling # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   springboot, jpa, docker, aws, react, algorithm
