@@ -386,9 +386,6 @@ chirpy 테마의 git repo 는 [여기](https://github.com/cotes2020/jekyll-theme
 
 {% raw %}`{% post_url YYYY-MM-DD-포스트이름 %}`{% endraw %} 이렇게 작성하면 해당 게시글로 이동된다. 쉽게 쓰라고 만들었으니 사양말고 쓰면된다. 왜 그런지 알고싶지 않았다.
 
-![삽질](sapzil.png)
-
-
 다만, 주의사항은 `_post/folder1/folder2/2023-01-01-test.md` 파일이 있다면 아래와 같이 입력해야 한다. 파일 확장자는 생략한다.
 
 {% raw %}
