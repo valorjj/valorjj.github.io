@@ -4,7 +4,7 @@ date: 2023-08-01 23:-00 +09:00
 categories: ["Github", "Jekyll"]
 tags: 
 image:
-    path: github_text_logo.png
+    path: logos/github_text_logo.png
     alt: ""
 ---
 

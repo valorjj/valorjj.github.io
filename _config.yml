@@ -20,12 +20,12 @@ timezone: Asia/Seoul
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: make it simple # the main title
+title: find a way # the main title
 
-tagline: stay simple # it will display as the sub-title
+tagline: just do it # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
-  springboot, jpa, docker, aws, react, algorithm, more coming
+  springboot, jpa, docker, aws, react, algorithm
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: "https://valorjj.github.io"
