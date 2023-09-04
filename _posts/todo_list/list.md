@@ -3,9 +3,6 @@ title: Todo List
 date: 2023-08-03 20:05 +09:00
 categories:
 tags:
-image:
-    path: front-image.jpg
-    alt: ""
 pin: true
 comment: false
 toc: false
