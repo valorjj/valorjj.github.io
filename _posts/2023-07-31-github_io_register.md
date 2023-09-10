@@ -8,31 +8,6 @@ image:
     alt: ""
 ---
 
-# Introduction
-
-> chirpy 테마를 적용한 github.io 블로그를 간단하게 만드는 방법
-{: .prompt-info }
-
-onenote, notion, obsidian, velog, tistory, 네이버 블로그, 애플 메모, 굿노트, bear, typora 등 유목민 생활을 하다가 이제는 정착하고자 github.io 를 만들어보고자 결심했다. 여러 번 옮겨다니느라 수도 없이 많던 노트들이 다 어디로 갔는지도 모르겠다.
-
-<details>
-    <summary>갈아타는 이유</summary>
-
-
-    1. 고정되어 있긴 하지만 도메인을 돈 주고 사지 않아도 깃에서 제공해준다. <br/>
-    2. 마크다운 형식이다. <br/>
-    3. 수 많은 테마가 이미 존재한다. <br/>
-    4. 깃허브에서 Actions 를 제공해서 CD/CI 가 간편하다. 그리고 버전 관리를 깃 베이스로 한다. <br/>
-    5. Ruby, Gem 등 생소한 프레임워크여서 흥미가 생긴다. <br/>
-    6. 구글에 참고할 자료가 널렸다. <br/>
-    7. velog 도 마크다운으로 메모하기가 너무 편한데 뭔가 고정된 형식이 아쉽다. <br/>
-    8. notion 너무 좋지만 뭔가 깔끔하게 정제된 자료를 archive 하는 용도로 사용하고 싶다. <br/>
-    9. obsidian 도 거의 방식은 유사하지만 홈페이지에 올릴려면 비용이 비싸다. <br/>
-    10. 아예 스프링 부트, 리액트로 홈페이지를 제작해볼까 했지만 프론트 만드는 시간과 호스팅 비용이 아깝다. 나는 단순 기록만을 원한다. <br/>
-    11. Liquid 문법이 JSP, vue 같은 느낌이 있어 재밌다. 간단한 제어가 가능하다. (이건 obsidian 도 native js 를 실행할 수 있기에 동일하다.)
-</details>
-
-
 ## 설치
 
 > 환경은 macOS
@@ -384,7 +359,7 @@ chirpy 테마의 git repo 는 [여기](https://github.com/cotes2020/jekyll-theme
 
 배포 시, `site/posts` 경로에 파일이 생성되니까 상대 경로로.. 또 `link` 라는 태그가 있네? 근데 왜 안되는거야.. 
 
-{% raw %}`{% post_url YYYY-MM-DD-포스트이름 %}`{% endraw %} 이렇게 작성하면 해당 게시글로 이동된다. 쉽게 쓰라고 만들었으니 사양말고 쓰면된다. 왜 그런지 알고싶지 않았다.
+{% raw %}`{% post_url YYYY-MM-DD-포스트이름 %}`{% endraw %} 이렇게 작성하면 해당 게시글로 이동된다. 쉽게 쓰라고 만들었으니 사양말고 쓰면된다.
 
 다만, 주의사항은 `_post/folder1/folder2/2023-01-01-test.md` 파일이 있다면 아래와 같이 입력해야 한다. 파일 확장자는 생략한다.
 
@@ -470,6 +445,25 @@ Jekyll::Hooks.register :posts, :post_init do |post|
 end
 
 ```
+
+## 오류 해결
+
+맥미니 초기화 후, 다시 git repo 를 내려 받으니 실행이 안된다! 😭
+해결은 다음과 같이 했다.
+
+1. `brew install ruby`
+2. `gem install jekyll bundler`
+3. Gemfile.lock 지우기
+4. `bundle`
+
+ruby 는 버전이 여러개 설치되어 있으면 오류가 무조건 발생한다. 맥 유저라면 `brew list ruby` 치면 어느 경로에 깔려있는지 확인할 수 있다. 삭제는 `brew uninstall --force ruby` `brew autoremove` 하면 관련 모든 파일이 지워진다.
+
+1번째 단계에서 ruby 를 설치하면 친절하게 환경변수에 등록할 수 있는 명령어를 알려준다.
+
+
+`echo 'export PATH="/opt/homebrew/opt/ruby/bin:$PATH"' >> ~/.zshrc`
+
+혹은 `vi ~/.zshrc` 로 직접 설정 파일을 열어서 `shift+g` 로 맨 아래 이동, `export PATH="/opt/homebrew/opt/ruby/bin:$PATH"` 입력해주고 esc, `:wq` 로 저장하고 `source ~/.zshrc` 의 과정을 거쳐도 동일하다. 
 
 ## Conclude
 
