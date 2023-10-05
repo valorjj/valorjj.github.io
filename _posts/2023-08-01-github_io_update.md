@@ -1,6 +1,6 @@
 ---
 title: github 블로그 만들기 - 수정
-date: 2023-08-01 23:-00 +09:00
+date: 2023-08-01 23:00 +09:00
 categories: ["Github", "Jekyll"]
 tags: 
 image:

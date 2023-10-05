@@ -1,6 +1,6 @@
 ---
 title: github 블로그 만들기
-date: 2023-07-31 06:29 +09:00
+date: 2023-07-31 00:00 +09:00
 categories: ["Github", "Jekyll"]
 tags: 
 image:
@@ -453,22 +453,16 @@ end
 
 1. `brew install ruby`
 2. `gem install jekyll bundler`
-3. Gemfile.lock 지우기
+3. `Gemfile.lock` 지우기
 4. `bundle`
 
 ruby 는 버전이 여러개 설치되어 있으면 오류가 무조건 발생한다. 맥 유저라면 `brew list ruby` 치면 어느 경로에 깔려있는지 확인할 수 있다. 삭제는 `brew uninstall --force ruby` `brew autoremove` 하면 관련 모든 파일이 지워진다.
 
 1번째 단계에서 ruby 를 설치하면 친절하게 환경변수에 등록할 수 있는 명령어를 알려준다.
 
-
 `echo 'export PATH="/opt/homebrew/opt/ruby/bin:$PATH"' >> ~/.zshrc`
 
 혹은 `vi ~/.zshrc` 로 직접 설정 파일을 열어서 `shift+g` 로 맨 아래 이동, `export PATH="/opt/homebrew/opt/ruby/bin:$PATH"` 입력해주고 esc, `:wq` 로 저장하고 `source ~/.zshrc` 의 과정을 거쳐도 동일하다. 
-
-## Conclude
-
-깊게 파면 끝도 없을 것 같아서 여기까지 줄인다. Ruby, Jekyll, Liquid 등 다소 생소했지만 이틀간 정리하면서 재밌는 경험이었다.
-
 
 ## 출처
 1. https://jekyllrb.com/docs/configuration/front-matter-defaults/
