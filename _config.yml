@@ -146,6 +146,17 @@ defaults:
         # DO NOT modify the following parameter unless you are confident enough
         # to update the code of all other post links in this project.
         permalink: /posts/:title/
+        # Add front matter to static files
+        # Jekyll will add `image: true` in front matter
+        # In front matter, you only need to specify url
+        # after `/asserts/img`
+        # ex) if you want to use file below,
+        # `/asserts/img/logos/spring.png`
+        # add this prop in front matter (relative path)
+        # image:
+        #   path: logos/spring.png
+        #   alt: ""
+        img_path: /assets/img/
     - scope:
         path: _drafts
       values:
@@ -164,6 +175,7 @@ defaults:
         path: assets/js/dist
       values:
         swcache: true
+
 
 sass:
     style: compressed
