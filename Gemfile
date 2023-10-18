@@ -29,3 +29,5 @@ end
 
 
 gem 'jekyll-compose', group: [:jekyll_plugins]
+
+gem "jekyll", "~> 4.3"
