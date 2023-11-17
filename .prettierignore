@@ -3,6 +3,6 @@ build
 coverage
 
 # Ignore Markdown files:
-# **/*.md
+**/*.md
 
 *.yml
