@@ -28,3 +28,24 @@ image:
 
 <img width="1459" alt="image" src="https://user-images.githubusercontent.com/30681841/282258012-f5784ece-d62d-484c-9227-e172d6443b38.png">
 
+## FETCH
+
+fetch 함수를
+
+### 방법1
+
+fetch 를 사용해서 
+```javascript
+export Page = async () => {
+  // 직접 무효화하기 전까지 Cache 된다.
+  const data = await fetch("...", {
+    cache: "force-cache"
+  });
+
+  // Cache 에 저장하지 않는다.
+  const dynamicData = await fetch("https://...", {
+    cache: 'no-store'
+  })
+  
+}
+```
