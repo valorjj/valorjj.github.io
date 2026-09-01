@@ -6,7 +6,7 @@ tags: [llm, ollama, apple-silicon, quantization, kv-cache, benchmark, mlops]
 description: LLM을 처음 다뤄보는 웹 개발자가 맥미니 M4에서 Qwen2.5 7B를 띄우고, 잘못 알던 것 4가지를 계산으로 걸러내고, TTFT와 prefill 곡선을 측정하기까지의 기록.
 math: true
 toc: true
-pin: false
+pin: true
 ---
 
 > **이 글의 독자**: LLM을 처음 다뤄보는 개발자. `KV cache`, `TTFT`, `quantization` 같은 단어를 오늘 처음 듣는 분을 기준으로 썼습니다. 모든 용어는 처음 나올 때 설명하고, 모든 숫자는 계산 과정을 같이 적었습니다.
