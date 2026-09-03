@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "데일리 마켓 리포트 — 2026-09-01"
+permalink: /posts/market-daily-2026-09-01/
 date: 2026-09-01 09:00:00 +0900
 categories: [투자, 데일리]
 tags: [KOSPI, 환율, 금리, 상관관계, 데일리]
