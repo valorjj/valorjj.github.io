@@ -1,4 +1,12 @@
 name: "Build and Deploy"
+#
+# REQUIRES: Settings -> Pages -> Build and deployment -> Source = "GitHub Actions".
+# If that is set to "Deploy from a branch", GitHub's legacy builder honours the
+# .nojekyll file in this repo and serves the repository RAW -- every post is
+# delivered as unrendered markdown and /posts/<slug>/ returns 404. This workflow
+# still succeeds and uploads a correct artifact; it is simply never served.
+# (That was the state of this site from the initial commit until 2026-09-03.)
+#
 on:
   push:
     branches:
