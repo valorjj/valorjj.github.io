@@ -1,6 +1,6 @@
 ---
 # the default layout is 'page'
-title: 프로젝트
+title: Projects
 icon: fas fa-server
 order: 5
 ---
